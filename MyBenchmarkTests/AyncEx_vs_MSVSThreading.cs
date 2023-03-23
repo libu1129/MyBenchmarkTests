@@ -1,5 +1,7 @@
 ﻿using BenchmarkDotNet.ConsoleArguments.ListBenchmarks;
 
+using Microsoft.VisualStudio.Threading;
+
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -12,7 +14,7 @@ namespace MyBenchmarkTests
     internal class AyncEx_vs_MSVSThreading
     {
         int run_count = 1000;
-
+        public AsyncEventHandler ev;
 
         public async Task test()
         {
@@ -33,6 +35,8 @@ namespace MyBenchmarkTests
         /// <returns></returns>
         private async Task<long> run()
         {
+
+
             Nito.AsyncEx.AsyncManualResetEvent are = new();
             //Microsoft.VisualStudio.Threading.AsyncManualResetEvent are = new();
 

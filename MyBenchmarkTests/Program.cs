@@ -5,5 +5,13 @@ Console.WriteLine("Hello, World!");
 
 
 AyncEx_vs_MSVSThreading tester = new AyncEx_vs_MSVSThreading();
+tester.ev += DoStuffAsync;
+
+async Task DoStuffAsync(object sender, EventArgs args)
+{
+
+}
+
+
 await tester.test();
 
